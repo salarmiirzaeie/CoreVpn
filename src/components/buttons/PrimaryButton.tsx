@@ -21,6 +21,7 @@ const PrimaryButton: FC<IPrimaryBtnPropType> = ({
 }) => {
   return (
     <Button
+      $active-bg="$primary500"
       size={size}
       rounded={'$full'}
       bg="$primary600"

@@ -1,8 +1,8 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import Entypo from 'react-native-vector-icons/Entypo';
+import Feather from 'react-native-vector-icons/Feather';
 const CheckIcon = () => {
-  return <Entypo name="check" size={48} color="white" />;
+  return <Feather name="check" size={56} color="white" />;
 };
 
 export default CheckIcon;

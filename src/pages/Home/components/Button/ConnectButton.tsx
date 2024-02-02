@@ -37,6 +37,15 @@ const ConnectButton: FC<IConnectButtonPropsType> = ({status, onPress}) => {
         ),
         -1,
       );
+    } else {
+      heightValue.value = withTiming(220, {
+        duration: 1000,
+        easing: Easing.linear,
+      });
+      widthValue.value = withTiming(220, {
+        duration: 1000,
+        easing: Easing.linear,
+      });
     }
   }, [status]);
 
@@ -47,7 +56,7 @@ const ConnectButton: FC<IConnectButtonPropsType> = ({status, onPress}) => {
     };
   });
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity disabled={status === 'connecting'} onPress={onPress}>
       <Animated.View
         style={[
           {

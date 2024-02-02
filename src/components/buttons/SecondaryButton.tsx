@@ -22,6 +22,7 @@ const SecondaryButton: FC<IPrimaryBtnPropType> = ({
   return (
     <Button
       size={size}
+      $active-bg="$primary500"
       rounded={'$full'}
       bg="$backgroundLight900"
       onPress={onPress}

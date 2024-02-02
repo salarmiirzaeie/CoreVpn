@@ -18,6 +18,9 @@ const Home = () => {
       setConnectVpn('connected');
     }, 3000);
   };
+  const disconnectToVPN = () => {
+    setConnectVpn('disconnected');
+  };
   return (
     <View px={'$4'} bg="$background" flex={1}>
       <View flex={0.15}>
@@ -32,7 +35,12 @@ const Home = () => {
         <CounterBox />
       </View>
       <View flex={0.4} alignItems="center" justifyContent="center">
-        <ConnectButton onPress={() => connectToVPN()} status={connectVpn} />
+        <ConnectButton
+          onPress={() =>
+            connectVpn === 'disconnected' ? connectToVPN() : disconnectToVPN()
+          }
+          status={connectVpn}
+        />
       </View>
       <AvailableServersAct isOpen={showActionsheet} onClose={handleClose} />
     </View>
