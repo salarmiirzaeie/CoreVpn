@@ -1,14 +1,34 @@
-import {Avatar, AvatarImage, Text} from '@gluestack-ui/themed';
+import {
+  ArrowRightIcon,
+  Avatar,
+  AvatarImage,
+  ChevronRightIcon,
+  Pressable,
+  Text,
+} from '@gluestack-ui/themed';
 import {Box} from '@gluestack-ui/themed';
-import React from 'react';
-
-const ConnectedServerBox = () => {
+import React, {FC} from 'react';
+import {RollInRight} from 'react-native-reanimated';
+import {height} from '../../../../config/consts';
+interface IConnectedServerBoxPropsType {
+  onPress: () => void;
+  country: string;
+  name: string;
+  speed: string;
+}
+const ConnectedServerBox: FC<IConnectedServerBoxPropsType> = ({
+  onPress,
+  country,
+  name,
+  speed,
+}) => {
   return (
-    <Box
+    <Pressable
+      onPress={onPress}
       borderWidth={1}
       borderColor="$primary"
       justifyContent="space-between"
-      flex={1}
+      h={height / 10}
       rounded={'$3xl'}
       bg="$backgroundLight900"
       my={'$3'}
@@ -24,19 +44,20 @@ const ConnectedServerBox = () => {
         </Avatar>
         <Box>
           <Text size="lg" bold color="$textLight50">
-            United Kingdom
+            {country}
           </Text>
           <Text size="sm" color="$textLight500">
-            Server Premium 01
+            {name}
           </Text>
         </Box>
       </Box>
       <Box flex={0.2}>
         <Text textAlign="center" alignSelf="center">
-          879 MS
+          {speed}
         </Text>
       </Box>
-    </Box>
+      <ChevronRightIcon size="lg" />
+    </Pressable>
   );
 };
 

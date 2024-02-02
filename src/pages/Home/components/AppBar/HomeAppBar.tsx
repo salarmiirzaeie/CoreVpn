@@ -1,9 +1,12 @@
 import {Button, ButtonIcon, Text, View} from '@gluestack-ui/themed';
-import React from 'react';
+import React, {FC} from 'react';
 import CrownIcon from '../../../../components/icons/CrownIcon';
-import {height} from '../../../../config/consts';
-
-const HomeAppBar = () => {
+import {amber400, height} from '../../../../config/consts';
+import PremiumIcon from '../../../../components/icons/PremiumIcon';
+interface IHomeAppBarPropsType {
+  navigation: any;
+}
+const HomeAppBar: FC<IHomeAppBarPropsType> = ({navigation}) => {
   return (
     <View
       alignItems="center"
@@ -15,8 +18,12 @@ const HomeAppBar = () => {
       <Text size="2xl" color="$textLight50">
         CoreVPN
       </Text>
-      <Button rounded={'$lg'} px="$3" bg="$backgroundLight900">
-        <ButtonIcon as={CrownIcon} />
+      <Button
+        onPress={() => navigation.navigate('Premium')}
+        rounded={'$lg'}
+        px="$3"
+        bg="$backgroundLight900">
+        <ButtonIcon as={PremiumIcon} />
       </Button>
     </View>
   );

@@ -12,21 +12,17 @@ import Animated, {
 import {TouchableOpacity} from 'react-native';
 import {primary700} from '../../../../config/consts';
 import TurnOffIcon from '../../../../components/icons/TurnOffIcon';
+import CheckIcon from '../../../../components/icons/CheckIcon';
 interface IConnectButtonPropsType {
   onPress: () => void;
-  connecting: boolean;
-  connected: boolean;
+  status: 'connected' | 'connecting' | 'disconnected';
 }
-const ConnectButton: FC<IConnectButtonPropsType> = ({
-  connected,
-  connecting,
-  onPress,
-}) => {
+const ConnectButton: FC<IConnectButtonPropsType> = ({status, onPress}) => {
   const heightValue = useSharedValue(220);
   const widthValue = useSharedValue(220);
 
   useEffect(() => {
-    if (connecting) {
+    if (status === 'connecting') {
       heightValue.value = withRepeat(
         withSequence(
           withTiming(180, {duration: 1000, easing: Easing.linear}),
@@ -42,7 +38,7 @@ const ConnectButton: FC<IConnectButtonPropsType> = ({
         -1,
       );
     }
-  }, [connecting]);
+  }, [status]);
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -81,7 +77,13 @@ const ConnectButton: FC<IConnectButtonPropsType> = ({
             alignItems="center"
             justifyContent="center"
             bg="$primary500">
-            {connected ? <TurnOffIcon /> : <Lightning />}
+            {status === 'disconnected' ? (
+              <TurnOffIcon />
+            ) : status === 'connecting' ? (
+              <Lightning />
+            ) : (
+              <CheckIcon />
+            )}
           </View>
         </View>
       </Animated.View>

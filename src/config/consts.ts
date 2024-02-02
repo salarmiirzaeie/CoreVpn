@@ -6,3 +6,5 @@ export const amber400 = '#fbbf24';
 export const primary500 = '#5D35EB';
 export const primary600 = '#30216A';
 export const primary700 = '#232036';
+export const primary = '#825FFE';
+export const textLight500 = '#8C8C8C';
