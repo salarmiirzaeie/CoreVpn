@@ -74,7 +74,7 @@ const Premium = () => {
         </View>
       </View>
       <View flex={0.05} />
-      <View justifyContent="space-between" flex={0.35}>
+      <View justifyContent="space-between" flex={0.3}>
         <PrimaryButton
           style={{height: height / 14}}
           title={'1 MONTH'}
@@ -92,7 +92,7 @@ const Premium = () => {
           title={'TRY FOR FREE'}
           onPress={() => null}
         />
-        <Text textAlign="center">7-day free trial. Then 9.99 $/month</Text>
+        {/* <Text textAlign="center">7-day free trial. Then 9.99 $/month</Text> */}
       </View>
     </View>
   );
